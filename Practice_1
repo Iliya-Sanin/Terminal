@@ -1,59 +1,27 @@
-# Navigation
+1. Navigation
+iliya.sanin@Iliyas-MBP Terminal % cd ..
 iliya.sanin@Iliyas-MBP git % cd Terminal
 iliya.sanin@Iliyas-MBP Terminal % date
 Mon Jan  8 22:54:28 EST 2024
+
+2. Folder, files
 iliya.sanin@Iliyas-MBP Terminal % mkdir FOLDER
 iliya.sanin@Iliyas-MBP Terminal % mv FOLDER Folder
-iliya.sanin@Iliyas-MBP Terminal % echo This is a new text for my new file. There are 
-just a few sentences as expalmples. > file.txt
-iliya.sanin@Iliyas-MBP Terminal % echo This is an additional string for an existing f
-ile >> file.txt
+iliya.sanin@Iliyas-MBP Terminal % echo This is a new text for my new file. There are just a few sentences as expalmples. > file.txt
+iliya.sanin@Iliyas-MBP Terminal % echo This is an additional string for an existing file >> file.txt
 iliya.sanin@Iliyas-MBP Terminal % cat file.txt
 This is a new text for my new file. There are just a few sentences as expalmples.
 This is an additional string for an existing file
+
 iliya.sanin@Iliyas-MBP terminal % tail -1 file.txt
 This is an additional string for an existing file
+
 iliya.sanin@Iliyas-MBP Terminal % grep -i "string" file.txt
 This is an additional string for an existing file
+
 iliya.sanin@Iliyas-MBP Terminal % touch file2.txt file3.txt
 iliya.sanin@Iliyas-MBP Terminal % ls
 Folder          file.txt        file2.txt       file3.txt
-iliya.sanin@Iliyas-MBP Terminal % cp file.txt Folder
-iliya.sanin@Iliyas-MBP Terminal % cd Folder
-iliya.sanin@Iliyas-MBP Folder % mv file.txt file_folder.txt
-iliya.sanin@Iliyas-MBP Folder % ls
-file_folder.txt
-iliya.sanin@Iliyas-MBP Folder %
-iliya.sanin@Iliyas-MBP Terminal % cp -r Folder /Users/iliya.sanin/git/Terminal/Folder
-
-iliya.sanin@Iliyas-MBP Terminal % cd Folder
-iliya.sanin@Iliyas-MBP Folder % ls
-Folder          file_folder.txt
-iliya.sanin@Iliyas-MBP Folder % cd Folder
-iliya.sanin@Iliyas-MBP Folder % ls
-file_folder.txt
-iliya.sanin@Iliyas-MBP Folder % cd ..
-iliya.sanin@Iliyas-MBP Folder % rm -ri Folder
-examine files in directory Folder? y
-remove Folder/file_folder.txt? y
-remove Folder? y
-iliya.sanin@Iliyas-MBP Terminal % find . -name "f*"
-./file2.txt
-./file.txt
-./file3.txt
-./Folder/file_folder.txt
-iliya.sanin@Iliyas-MBP Terminal % find . type f -name "f*" 
-./file2.txt
-./file.txt
-./file3.txt
-./Folder/file_folder.txt
-iliya.sanin@Iliyas-MBP Terminal % find . type d -name "*er"
-./Folder
-
-iliya.sanin@Iliyas-MBP Terminal % tail -f file file.txt | grep --line-buffered "text"
- >> file2.txt
-iliya.sanin@Iliyas-MBP Terminal % cat file2.txt
-This is a new text for my new file. There are just a few sentences as expalmples.
 
 iliya.sanin@Iliyas-MBP Terminal % cat <<EOT>> file.txt
 heredoc> additional line 1 
@@ -68,7 +36,6 @@ additional line 1
 additional line 2
 additional line 3
 additional line 4
-iliya.sanin@Iliyas-MBP Terminal %
 
 iliya.sanin@Iliyas-MBP Terminal % (echo line 5; echo line 6) >> file.txt
 iliya.sanin@Iliyas-MBP Terminal % cat file.txt
@@ -80,6 +47,48 @@ additional line 3
 additional line 4
 line 5
 line 6
+
+3. Moving
+iliya.sanin@Iliyas-MBP Terminal % cp file.txt Folder
+iliya.sanin@Iliyas-MBP Terminal % cd Folder
+iliya.sanin@Iliyas-MBP Folder % mv file.txt file_folder.txt
+iliya.sanin@Iliyas-MBP Folder % ls
+file_folder.txt
+
+iliya.sanin@Iliyas-MBP Terminal % cp -r Folder /Users/iliya.sanin/git/Terminal/Folder
+iliya.sanin@Iliyas-MBP Terminal % cd Folder
+iliya.sanin@Iliyas-MBP Folder % ls
+Folder          file_folder.txt
+
+iliya.sanin@Iliyas-MBP Folder % cd Folder
+iliya.sanin@Iliyas-MBP Folder % ls
+file_folder.txt
+
+iliya.sanin@Iliyas-MBP Folder % cd ..
+iliya.sanin@Iliyas-MBP Folder % rm -ri Folder
+examine files in directory Folder? y
+remove Folder/file_folder.txt? y
+remove Folder? y
+
+4. Search
+iliya.sanin@Iliyas-MBP Terminal % find . -name "f*"
+./file2.txt
+./file.txt
+./file3.txt
+./Folder/file_folder.txt
+
+iliya.sanin@Iliyas-MBP Terminal % find . type f -name "f*" 
+./file2.txt
+./file.txt
+./file3.txt
+./Folder/file_folder.txt
+
+iliya.sanin@Iliyas-MBP Terminal % find . type d -name "*er"
+./Folder
+
+iliya.sanin@Iliyas-MBP Terminal % tail -f file file.txt | grep --line-buffered "text" >> file2.txt
+iliya.sanin@Iliyas-MBP Terminal % cat file2.txt
+This is a new text for my new file. There are just a few sentences as expalmples.
 
 iliya.sanin@Iliyas-MBP Terminal % grep "line 3" file.txt
 additional line 3
