@@ -1,8 +1,12 @@
 1. Navigation
-iliya.sanin@Iliyas-MBP Terminal % cd ..
-iliya.sanin@Iliyas-MBP git % cd Terminal
+iliya.sanin@Iliyas-MBP Terminal % pwd
+/Users/iliya.sanin/git/Terminal
+
 iliya.sanin@Iliyas-MBP Terminal % date
 Mon Jan  8 22:54:28 EST 2024
+
+iliya.sanin@Iliyas-MBP Terminal % cd ..
+iliya.sanin@Iliyas-MBP git % cd Terminal
 
 2. Folder, files
 iliya.sanin@Iliyas-MBP Terminal % mkdir FOLDER
