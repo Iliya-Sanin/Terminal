@@ -1,4 +1,4 @@
-1. Taking a look at the general information.
+1. General information.
 iliya.sanin@Iliyas-MBP Terminal % curl --head github.com
 HTTP/1.1 301 Moved Permanently
 Content-Length: 0
