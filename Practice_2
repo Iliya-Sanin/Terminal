@@ -1,0 +1,89 @@
+1. Taking a look at the general information.
+iliya.sanin@Iliyas-MBP Terminal % curl --head github.com
+HTTP/1.1 301 Moved Permanently
+Content-Length: 0
+Location: https://github.com/
+
+iliya.sanin@Iliyas-MBP Terminal % ping reqres.in                    
+PING reqres.in (172.67.73.173): 56 data bytes
+64 bytes from 172.67.73.173: icmp_seq=0 ttl=59 time=19.659 ms
+64 bytes from 172.67.73.173: icmp_seq=1 ttl=59 time=16.510 ms
+^C
+
+2. Requests.
+
+GET:
+iliya.sanin@Iliyas-MBP Terminal % curl https://reqres.in/api/users/2
+{"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}%  
+
+
+POST:
+iliya.sanin@Iliyas-MBP Terminal % curl -X POST https://reqres.in/api/login --data "email=eve.holt@reqres.in" --data "password=cityslicka"
+{"token":"QpwL5tke4Pnpja7X4"}%  
+
+
+POST (response+body):
+iliya.sanin@Iliyas-MBP Terminal % curl -v -X POST https://reqres.in/api/users --data "name=Testing_Name" --data "job=Manual_tester"
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 104.26.11.213:443...
+* Connected to reqres.in (104.26.11.213) port 443 (#0)
+* ALPN: offers h2,http/1.1
+* (304) (OUT), TLS handshake, Client hello (1):
+*  CAfile: /etc/ssl/cert.pem
+*  CApath: none
+* (304) (IN), TLS handshake, Server hello (2):
+* (304) (IN), TLS handshake, Unknown (8):
+* (304) (IN), TLS handshake, Certificate (11):
+* (304) (IN), TLS handshake, CERT verify (15):
+* (304) (IN), TLS handshake, Finished (20):
+* (304) (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / AEAD-CHACHA20-POLY1305-SHA256
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: C=US; ST=California; L=San Francisco; O=Cloudflare, Inc.; CN=sni.cloudflaressl.com
+*  start date: May 14 00:00:00 2023 GMT
+*  expire date: May 13 23:59:59 2024 GMT
+*  subjectAltName: host "reqres.in" matched cert's "reqres.in"
+*  issuer: C=US; O=Cloudflare, Inc.; CN=Cloudflare Inc ECC CA-3
+*  SSL certificate verify ok.
+* using HTTP/2
+* h2 [:method: POST]
+* h2 [:scheme: https]
+* h2 [:authority: reqres.in]
+* h2 [:path: /api/users]
+* h2 [user-agent: curl/8.1.2]
+* h2 [accept: */*]
+* h2 [content-length: 35]
+* h2 [content-type: application/x-www-form-urlencoded]
+* Using Stream ID: 1 (easy handle 0x13880a800)
+> POST /api/users HTTP/2
+> Host: reqres.in
+> User-Agent: curl/8.1.2
+> Accept: */*
+> Content-Length: 35
+> Content-Type: application/x-www-form-urlencoded
+> 
+* We are completely uploaded and fine
+< HTTP/2 201 
+< date: Thu, 11 Jan 2024 01:31:22 GMT
+< content-type: application/json; charset=utf-8
+< content-length: 95
+< report-to: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1704936682&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=3H3sk7KuARmX1htAWLvYc5XsRlGqkX60jDwLzRhVRa8%3D"}]}
+< reporting-endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1704936682&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=3H3sk7KuARmX1htAWLvYc5XsRlGqkX60jDwLzRhVRa8%3D
+< nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+< x-powered-by: Express
+< access-control-allow-origin: *
+< etag: W/"5f-HSkk/cvQrYxtp1BtLxxhR1ljt5k"
+< via: 1.1 vegur
+< cf-cache-status: DYNAMIC
+< server: cloudflare
+< cf-ray: 84396659bba743af-EWR
+< 
+* Connection #0 to host reqres.in left intact
+{"name":"Testing_Name","job":"Manual_tester","id":"997","createdAt":"2024-01-11T01:31:22.652Z"}%
+
+
+PUT:
+iliya.sanin@Iliyas-MBP Terminal % curl -X PUT https://reqres.in/api/users/2 --data "name=Bob", --data "j
+ob=driver"
+{"name":"Bob,","job":"driver","updatedAt":"2024-01-11T00:59:35.631Z"}%      
