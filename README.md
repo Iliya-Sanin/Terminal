@@ -6,6 +6,7 @@ My practices in Linux Terminal.
 <p>- Files. folders,</p>
 <p>- Moving,</p>
 <p>- Searching.</p>
+
 ## Practice_2
 <p> Includes code related with URLs:</p>
 <p>-General information,</p>
